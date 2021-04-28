@@ -6,16 +6,10 @@ public class TestAdressePostale {
 	
 	public static void main(String[] args) {
 		
-	AdressePostale a =new AdressePostale();
-	a.nbRue = 40;
-	a.codePostal= 44300;
-	a.libelle="boulevard Jules Verne";
-	a.ville="Nantes";
+	AdressePostale a =new AdressePostale(4,"papapa",44000,"nantes");
 	
-	AdressePostale b =new AdressePostale();
-	b.nbRue = 14;
-	b.codePostal= 13001;
-	b.libelle="boulevard de la liberté";
-	b.ville="Marseille";
+	
+	AdressePostale b =new AdressePostale(8,"jjkhjk",95000,"nantes");
+	
 	}	
 }

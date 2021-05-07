@@ -78,7 +78,7 @@ public class App {
 		
 		
 		Scanner votreRegion = new Scanner( System.in );
-		System.out.println("taper le nom de votre departement");
+		System.out.println("taper le nom de votre region");
 		String regions = votreRegion.nextLine();
 		System.out.println("vous avais saisie"+" "+ regions);
 		int popRegion= 0;

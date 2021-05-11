@@ -39,61 +39,28 @@ public class App {
 			popTotale = popTotales;
 
 			Ville v = new Ville(codeRegion, nomRegion, codeDept, codeCommune, nomCommune, popTotale);
-			
+
 			recensement.add(v);
-			//System.out.println(v);
+			
 			
 		}
-		// recherche dune ville
-		Scanner scanner = new Scanner( System.in );
-		System.out.println("taper le nom de votre Commune");
-		String choix = scanner.nextLine();
-		System.out.println("vous avais saisie"+" "+choix);
-		
-		for( int i = 0 ; i <= recensement.size() - 1; i++ ) {
-			Ville villes = recensement.get(i);
-			
-			if( choix.equalsIgnoreCase(villes.getNomCommune())) {
-				System.out.println("la pop de votre ville est "+" "+villes.getPopTotale());
-			}
-			
+
+		Scanner choixMenue = new Scanner(System.in);
+		System.out.println(
+				"menue1: rechercher part ville; menue2: rechercher pop Departemant; menue3: recherche pop region");
+		String menue = choixMenue.nextLine();
+
+		if (menue.equalsIgnoreCase("menue1")) {
+			RecherchePopulationVille recherche = new RecherchePopulationVille();
+			recherche.traiter(recensement);
+		}else if (menue.equalsIgnoreCase("menue2")) {
+			RecherchePopDep rechercheDep = new RecherchePopDep();
+			rechercheDep.popDep(recensement);
+		} else if (menue.equalsIgnoreCase("menue3")) {
+			RechercheReg rechercheRegPop = new RechercheReg();
+			rechercheRegPop.popRegion(recensement);
 		}
-		Scanner votreDepartement = new Scanner( System.in );
-		System.out.println("taper le nom de votre departement");
-		String departements = votreDepartement.nextLine();
-		System.out.println("vous avais saisie"+" "+ departements);
-		int popDepartement= 0;
-		
-		for(int i = 0 ; i <= recensement.size() - 1; i++ ) {
-			Ville departement = recensement.get(i);
-			
-			if(departements.equalsIgnoreCase(departement.getCodeDept())){
-				//
-				popDepartement = popDepartement + departement.getPopTotale();
-				 
-			}
-			
-		}
-		System.out.println("votre region à "+ popDepartement +" "+"Paysan" );
-		
-		
-		Scanner votreRegion = new Scanner( System.in );
-		System.out.println("taper le nom de votre region");
-		String regions = votreRegion.nextLine();
-		System.out.println("vous avais saisie"+" "+ regions);
-		int popRegion= 0;
-		
-		for(int i = 0 ; i <= recensement.size() - 1; i++ ) {
-			Ville region = recensement.get(i);
-			
-			if(regions.equalsIgnoreCase(region.getNomRegion())){
-				//
-				 popRegion = popRegion + region.getPopTotale();
-				 
-			}
-			
-		}
-		System.out.println("votre region à "+ popRegion +" "+"Paysan" );
+
 	}
 
 }

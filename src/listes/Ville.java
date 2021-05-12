@@ -1,34 +1,56 @@
 package listes;
 
-public class Ville {
-private String ville;
-private int nbhab;
+public class Ville implements  Comparable<Ville> {
+	private String nom;
+	private int nbhab;
 
-public Ville(String ville, int nbhab) {
-	super();
-	this.ville = ville;
-	this.nbhab = nbhab;
-}
+	public Ville(String nom, int nbhab) {
+		super();
+		this.nom = nom;
+		this.nbhab = nbhab;
+	}
+	
+	
 
-public String getVille() {
-	return ville;
-}
 
-public void setVille(String ville) {
-	this.ville = ville;
-}
+	public boolean equals(Object object) {
+		if (!(object instanceof Ville)) {
+			return false;
 
-public int getNbhab() {
-	return nbhab;
-}
+		}
+		Ville other = (Ville) object;
+		return nom.equals(other.getNom());
+	}
 
-public void setNbhab(int nbhab) {
-	this.nbhab = nbhab;
-}
+	public String getNom() {
+		return nom;
+	}
 
-@Override
-public String toString() {
-	return "Ville [ville=" + ville + ", nbhab=" + nbhab + "]";
-}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
+	public int getNbhab() {
+		return nbhab;
+	}
+
+	public void setNbhab(int nbhab) {
+		this.nbhab = nbhab;
+	}
+
+	@Override
+	public String toString() {
+		return "Ville [ville=" + nom + ", nbhab=" + nbhab + "]";
+	}
+
+
+
+
+	@Override
+	public int compareTo(Ville o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 }

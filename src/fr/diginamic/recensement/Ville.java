@@ -1,6 +1,6 @@
 package fr.diginamic.recensement;
 
-public class Ville {
+public class Ville implements Comparable<Ville> {
 	private String codeRegion;
 	private String nomRegion;
 	private String codeDept;
@@ -18,6 +18,19 @@ public class Ville {
 		this.nomCommune = nomCOmmune;
 		this.popTotale = popTotale;
 
+	}
+
+//methodes
+	@Override
+	public String toString() {
+		return "Ville [codeRegion=" + codeRegion + ", nomRegion=" + nomRegion + ", codeDept=" + codeDept
+				+ ", codeCommune=" + codeCommune + ", nomCommune=" + nomCommune + ", popTotale=" + popTotale + "]";
+	}
+
+	@Override
+	public int compareTo(Ville ville1) {
+
+		return this.getNomCommune().compareTo(ville1.getNomCommune());
 	}
 
 	public String getNomRegion() {
@@ -75,10 +88,5 @@ public class Ville {
 	public void setPopTotale(int popTotale) {
 		this.popTotale = popTotale;
 	}
-//methodes
-	@Override
-	public String toString() {
-		return "Ville [codeRegion=" + codeRegion + ", nomRegion=" + nomRegion + ", codeDept=" + codeDept
-				+ ", codeCommune=" + codeCommune + ", nomCommune=" + nomCommune + ", popTotale=" + popTotale + "]";
-	}
+
 }

@@ -35,7 +35,7 @@ public class MapVilles {
 			}
 
 		}
-		villes.remove(habmin.getVille());
+		villes.remove(habmin.getNom());
 		
 		System.out.println(villes);
 	}
